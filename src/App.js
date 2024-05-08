@@ -5,9 +5,9 @@ import Signup from "./components/Signup";
 import Home from "./components/Home";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
-
-
-
+import ChatContent from "./components/ChatContent";
+import Profile from "./components/Profile";
+import { PiRadioFill } from "react-icons/pi";
 
 const appRouter = createBrowserRouter([
   {
@@ -20,16 +20,26 @@ const appRouter = createBrowserRouter([
   },
   {
     path: "/home",
-    element:<Home/>
+    element:<Home/>,
+    children:[
+      {
+        path:"/home",
+        element:<ChatContent/>
+      }
+      ,
+      {
+        path:"/home/profile",
+        element:<Profile/>
+      }
+    ]
   }
 ])
 
 function App() {
   return (
     <div>
-     <ToastContainer />
-     <RouterProvider router={appRouter}/>
-   
+      <ToastContainer />
+      <RouterProvider router={appRouter} />
     </div>
   );
 }
