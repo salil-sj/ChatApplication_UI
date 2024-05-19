@@ -1,12 +1,30 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import backgroundImage from "../assets/jason-dent-UNDqO_CL30s-unsplash.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { setUserName } from "../store/userSlice";
 
 const Login = () => {
   const username = useRef(null);
   const password = useRef(null);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+// User should go to home page if already logged in:
+  useEffect(()=>{
+    const jwt = Cookies.get("jwtToken");
+    const user = Cookies.get("username");
+    
+    if (jwt && jwt !== "undefined" && user && user !== "undefined") {
+      navigate("/home")
+    } else {
+      return;
+    }
+  },[])
 
   const handleLogin = () => {
     const emailAddress = username.current.value;
@@ -14,7 +32,13 @@ const Login = () => {
 
     authorizeUser(emailAddress, pwd)
       .then((response) => {
+        console.log("---------RESPONSEEEEEEEEEEEEEE")
         console.log(response);
+        // Storing token in cookie:
+        storeToken(response.jwtToken ,  response.userName);
+        dispatch(setUserName(response.userName))
+        navigate("/home")
+        
       })
       .catch((err) => {
         setErrorMessage("Invalid User name or password");
@@ -41,6 +65,11 @@ const Login = () => {
     const payload = await data.json();
     return payload;
   };
+
+  const storeToken = (token,username)=>{
+    Cookies.set("jwtToken" , token);
+    Cookies.set("username" , username);
+  }
 
   return (
     <div

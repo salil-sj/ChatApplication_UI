@@ -4,9 +4,12 @@ import Chatbox from './Chatbox'
 
 const ChatContent = () => {
   return (
-    <div className='flex h-full'>
-        <ChatContacts /> 
+    <div>
+    <div className='flex'>
+        <ChatContacts />  
        <Chatbox /> 
+    </div>
+    
     </div>
   )
 }

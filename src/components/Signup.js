@@ -124,7 +124,7 @@ const Signup = () => {
       },
     });
 
-    console.log(data)
+ 
     if(data.status==200)
       {
         

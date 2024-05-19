@@ -8,6 +8,9 @@ import { ToastContainer } from "react-toastify";
 import ChatContent from "./components/ChatContent";
 import Profile from "./components/Profile";
 import { PiRadioFill } from "react-icons/pi";
+import Testing from "./components/Testing";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const appRouter = createBrowserRouter([
   {
@@ -38,8 +41,10 @@ const appRouter = createBrowserRouter([
 function App() {
   return (
     <div>
+      <Provider store={store}>
       <ToastContainer />
       <RouterProvider router={appRouter} />
+      </Provider>
     </div>
   );
 }
