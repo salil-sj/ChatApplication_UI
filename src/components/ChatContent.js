@@ -1,17 +1,21 @@
-import React from 'react'
-import ChatContacts from './ChatContacts'
-import Chatbox from './Chatbox'
+import React from "react";
+import ChatContacts from "./ChatContacts";
+import Chatbox from "./Chatbox";
+import ChatBoxHeader from "./ChatBoxHeader";
+import SendComponent from "./SendComponent";
 
 const ChatContent = () => {
   return (
-    <div>
-    <div className='flex'>
-        <ChatContacts />  
-       <Chatbox /> 
+    <div className="flex ">
+      <ChatContacts />
+      <div className=" w-[86%] bg-gray-200">
+        <div className="flex-grow overflow-y-auto h-screen">
+          <ChatBoxHeader />
+          <Chatbox />
+        </div>
+      </div>
     </div>
-    
-    </div>
-  )
-}
+  );
+};
 
-export default ChatContent
+export default ChatContent;

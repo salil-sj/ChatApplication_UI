@@ -14,8 +14,7 @@ const SideBar = () => {
   };
 
   return (
-    <div className="p-2  bg-gray-200 h-screen  ">
-      {/* <div className='bg-blue-950 '></div> */}
+    <div className="p-2  bg-gray-200 ">
       <Link to={"/home"}>
         <IoChatbubblesOutline className="text-gray-600  text-4xl mx-auto mt-6 mb-10 hover:border-l-2  hover:border-blue-950" />
       </Link>

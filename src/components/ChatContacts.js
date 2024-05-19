@@ -7,7 +7,8 @@ const ChatContacts = () => {
   const chatContactsData = useSelector(store=>store.userData.sideBarDetais)
 
   return (
-    <div className='w-[26%] bg-gray-100 h-screen overflow-y-auto ' style={{
+    <div className='w-[36%] bg-gray-100 max-h-screen overflow-y-auto ' style={{
+   
         scrollbarWidth: 'thin',
     }}>
 

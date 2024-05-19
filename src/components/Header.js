@@ -55,7 +55,7 @@ const [queryData , setQueryData] = useState([])
   const debouncedHandleSearch = debounce(handleSearch , 300  );
 
   return (
-    <div className='bg-blue-950  flex justify-center relative'>
+    <div className='bg-blue-950  flex justify-center w-full'>
       <div className="relative w-[40%] m-2">
         <CiSearch className="text-gray-400 absolute left-2 top-1/2 transform -translate-y-1/2" />
         <input type='text' className='p-1 pl-8 w-full rounded-lg' placeholder="Search" onChange={debouncedHandleSearch} />

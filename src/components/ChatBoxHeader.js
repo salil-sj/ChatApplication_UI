@@ -4,7 +4,7 @@ import { GoDotFill } from "react-icons/go";
 const ChatBoxHeader = () => {
   return (
     <div>
-      <div className="bg-gray-200 shadow-sm  flex mb-4 ">
+      <div className="bg-gray-300 shadow-lg  flex  rounded-sm">
         <div className="flex p-2">
           <div className="relative">
             <div className="w-9 h-9 bg-gray-300 rounded-full flex justify-center">

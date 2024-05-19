@@ -11,28 +11,26 @@ import Cookies from "js-cookie";
 
 const Home = () => {
   const dispatch = useDispatch();
- // const [isProfileOpen, setIsProfileOpen] = useState(true);
+  // const [isProfileOpen, setIsProfileOpen] = useState(true);
 
   const [sideBarData, setSideBarData] = useState(null);
 
   const [tokenData, setTokenData] = useState(null);
-  const [userName , setUserName] = useState(null);
+  const [userName, setUserName] = useState(null);
 
   const navigate = useNavigate();
 
-  const isProfileOpen = useSelector(store=>store.userData.isProfileTab)
-
-  
+  const isProfileOpen = useSelector((store) => store.userData.isProfileTab);
 
   useEffect(() => {
     // fetching token from local storage
     const jwt = Cookies.get("jwtToken");
     const user = Cookies.get("username");
     console.log("JWT gathered is " + jwt);
-    console.log("Username is " + user)
+    console.log("Username is " + user);
 
     if (jwt && jwt !== "undefined" && user && user !== "undefined") {
-      setTokenData(jwt)
+      setTokenData(jwt);
       setUserName(user);
     } else {
       navigate("/");
@@ -41,13 +39,12 @@ const Home = () => {
 
   useEffect(() => {
     console.log("Token data in second render is............... " + tokenData);
-    if(tokenData)
-    getSideBarData();
+    if (tokenData) getSideBarData();
   }, [tokenData]);
 
   const getSideBarData = async () => {
     const URL = BASE_URL + "/user/getRecentMessage";
-    console.log("User name for fetch is ---------- " + userName)
+    console.log("User name for fetch is ---------- " + userName);
 
     const result = await fetch(URL, {
       method: "POST",
@@ -65,22 +62,16 @@ const Home = () => {
   };
 
   return (
-    <div>
-      <Header />
-
-      <div className="flex ">
-        <div className="  ">
-          <SideBar />
-        </div>
-        <div>{isProfileOpen && <Profile />}</div>
-       
-
-        <div className="">
-          <Outlet />
-          {/* <ChatContent/> */}
-        </div>
+    <div className="flex flex-col h-screen">
+    <Header />
+    <div className="flex flex-grow overflow-hidden">
+      <SideBar />
+      <div className="flex-grow flex flex-col">
+        {isProfileOpen && <Profile />}
+        <Outlet />
       </div>
     </div>
+  </div>
   );
 };
 
