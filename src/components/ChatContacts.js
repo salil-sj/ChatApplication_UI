@@ -14,7 +14,7 @@ const ChatContacts = () => {
   const [userName, setUserName] = useState(null);
   
 
-  const sidebarData = useSelector(store=>store.userData.sideBarDetails , shallowEqual)
+  const sidebarData = useSelector(store=>store.userData.sideBarDetails )
   //const [sidebarData, setSideBarData] = useState(null);
 
   const messagesData = useSelector(store=>store.messageData.message)
@@ -34,7 +34,7 @@ const ChatContacts = () => {
     getMessageHistoryForSelectedCard(userName, currrentRecipientObj.userName);
 
     // Setting readFlag as true in DB , as the chatbox for this user is opened:
-    updateReadFlagInDB(uName , userName )  
+    updateReadFlagInDB(uName , userName);  
   };
 
   const updateReadFlagInDB = async(senderUserName , receiverUserName)=>
@@ -166,7 +166,7 @@ const ChatContacts = () => {
    // setSideBarData(data);
   };
 
-  const chatContactsData = useSelector((store) => store.userData.sideBarDetais);
+ // const chatContactsData = useSelector((store) => store.userData.sideBarDetails , shallowEqual);
 
   return (
     <div

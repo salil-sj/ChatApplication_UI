@@ -21,26 +21,21 @@ const Chatbox = () => {
     (store) => store.messageData.message[currrentRecipient]
   );
 
-
-
   const handleReadFlag = () => {
     /*
     If current receint ie....tab of the particular username opened is same as the msg recieved, so readFlag ---> true 
     as window is already opened
   */
-    console.log("current RECIPIENT.................")
- console.log(currrentRecipient)
-    if(currrentRecipient!= undefined)
-      {
-        console.log("DISPATCHING AN ACTION.................")
-        dispatch(updateReadFlag(currrentRecipient));
-      }
-  
+    console.log("current RECIPIENT.................");
+    console.log(currrentRecipient);
+    if (currrentRecipient != undefined) {
+      console.log("DISPATCHING AN ACTION.................");
+      dispatch(updateReadFlag(currrentRecipient));
+    }
   };
 
   useEffect(() => {
     handleReadFlag();
-    console.log("---------USE EFFECT OF CHATBOX CALLED -------------")
   }, [messageData]);
 
   return (

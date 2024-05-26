@@ -17,7 +17,7 @@ const userSlice = createSlice({
   },
   reducers: {
     setSideBarDetails: (state, action) => {
-      state.sideBarDetais = action.payload;
+      state.sideBarDetails = action.payload;
     },
     setToken: (state, action) => {
       state.token = action.payload;
@@ -31,6 +31,22 @@ const userSlice = createSlice({
     },
     updateSideBarDetails: (state, action) => {
      state.sideBarDetails[action.payload.userName] = action.payload;
+    },
+    updateSideBarForSearchBarEvent :(state , action)=>{
+
+      if (state.sideBarDetails[action.payload.userName]) {
+        const tempData = state.sideBarDetails[action.payload.userName];
+        delete state.sideBarDetails[action.payload.userName];
+        state.sideBarDetails = {
+          [action.payload.userName]: tempData,
+          ...state.sideBarDetails
+        };
+        console.log(state.sideBarDetails);
+      } else {
+        // Handle case where userName doesn't exist if necessary
+      }
+      
+      
     },
     updateReadFlag:(state,action)=>{
       console.log("---------UPDATE READ FLAG REDUX ------------------")
@@ -54,5 +70,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { setSideBarDetails, setToken , setUser , toggleProfileTab , updateSideBarDetails ,  updateReadFlag ,setCurrentRecipient , setProfileDetails} = userSlice.actions;
+export const { setSideBarDetails, setToken , setUser , toggleProfileTab , updateSideBarForSearchBarEvent , updateSideBarDetails ,  updateReadFlag ,setCurrentRecipient , setProfileDetails} = userSlice.actions;
 export default userSlice.reducer;
