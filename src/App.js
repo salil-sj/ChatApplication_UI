@@ -11,7 +11,11 @@ import { PiRadioFill } from "react-icons/pi";
 import Testing from "./components/Testing";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import { enableMapSet } from "immer";
+import Demo from "./components/Demo";
 
+
+enableMapSet();
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -39,6 +43,8 @@ const appRouter = createBrowserRouter([
 ])
 
 function App() {
+
+  enableMapSet();
   return (
     <div>
       <Provider store={store}>

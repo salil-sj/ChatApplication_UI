@@ -14,7 +14,7 @@ const [queryData , setQueryData] = useState([])
         setQueryData([]);
         return;
       }
-    console.log("Firing API for " +  e.target.value);
+   
     fetchData(e.target.value).then().catch((e)=>console.log("Error is " + e))
   }
 

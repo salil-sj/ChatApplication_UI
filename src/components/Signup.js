@@ -41,7 +41,7 @@ const Signup = () => {
   };
 
   const handleUserName = async (e) => {
-    console.log("API call for ", e.target.value);
+  
 
     const user = e.target.value;
 
@@ -59,8 +59,7 @@ const Signup = () => {
   const debouncedHandleUserName = debounce(handleUserName, 500);
 
   const handleSignup = () => {
-    console.log("Hanndle sign up----------");
-    console.log(firstName);
+    
     if (firstName.current.value.length == 0) {
       setFirstNameExists(false);
       return;

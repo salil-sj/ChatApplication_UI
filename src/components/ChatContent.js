@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ChatContacts from "./ChatContacts";
 import Chatbox from "./Chatbox";
 import ChatBoxHeader from "./ChatBoxHeader";
 import SendComponent from "./SendComponent";
+import { useOutletContext } from "react-router-dom";
 
 const ChatContent = () => {
+
   return (
     <div className="flex ">
       <ChatContacts />

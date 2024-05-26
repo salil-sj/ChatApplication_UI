@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
-import { setUserName } from "../store/userSlice";
+import { setUser, setUserName } from "../store/userSlice";
 
 const Login = () => {
   const username = useRef(null);
@@ -32,11 +32,10 @@ const Login = () => {
 
     authorizeUser(emailAddress, pwd)
       .then((response) => {
-        console.log("---------RESPONSEEEEEEEEEEEEEE")
-        console.log(response);
+  
         // Storing token in cookie:
         storeToken(response.jwtToken ,  response.userName);
-        dispatch(setUserName(response.userName))
+       // dispatch(setUser(response.userName))
         navigate("/home")
         
       })

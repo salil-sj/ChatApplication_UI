@@ -1,7 +1,10 @@
 import React from "react";
 import { FaUserAlt } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
+import { useSelector } from "react-redux";
 const ChatBoxHeader = () => {
+
+  const {firstName , lastName} = useSelector((store)=>store.userData.currrentRecipient)
   return (
     <div>
       <div className="bg-gray-300 shadow-lg  flex  rounded-sm">
@@ -15,7 +18,7 @@ const ChatBoxHeader = () => {
             </div>
           </div>
           <div>
-            <h1 className="font-balsamiq ml-6 mt-2"> Salil Joshi</h1>
+            <h1 className="font-balsamiq ml-6 mt-2"> {firstName} {lastName}</h1>
           </div>
         </div>
       </div>

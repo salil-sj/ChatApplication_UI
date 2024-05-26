@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SentMessage = () => {
+const SentMessage = ({content}) => {
   return (
     <div>
          <div className="flex items-center justify-end mb-2 mr-2">
@@ -8,17 +8,7 @@ const SentMessage = () => {
           {" "}
          
           <p className="text-sm">
-            I am doing just fine... (long message content here)I am doing just
-            fine... (long message content here)I am doing just fine... (long
-            message content here)I am doing just fine... (long message content
-            here)I am doing just fine... (long message content here)I am doing
-            just fine... (long message content here)I am doing just fine...
-            (long message content here)I am doing just fine... (long message
-            content here)I am doing just fine... (long message content here)I am
-            doing just fine... (long message content here)I am doing just
-            fine... (long message content here)I am doing just fine... (long
-            message content here)I am doing just fine... (long message content
-            here)I am doing just fine... (long message content here)
+            {content}
           </p>
         </div>
         <div className="w-10 h-10 bg-gray-300 rounded-full ml-2">
